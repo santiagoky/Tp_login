@@ -1,0 +1,28 @@
+<!-- <div > -->
+  <mat-toolbar class="tp-color">
+    <mat-toolbar-row>
+      <span>Teleperformance</span>
+      <span class="spacer"></span>
+      <ng-container *ngIf="!isAdmin; else adminUser">
+      <div>
+          <button mat-button routerLink='/home'>Inicio</button>
+          <button mat-button routerLink='/user'>Usuario</button>
+          <button mat-button (click)="logOut()">Logout</button>
+        </div>
+      </ng-container>
+      </mat-toolbar-row>
+  </mat-toolbar>
+<!-- </div> -->
+
+
+<!-- <mat-toolbar-row> -->
+<!--   <span>Teleperformance</span>
+  <span class="spacer"></span> -->
+  <ng-template #adminUser>
+    <div>
+      <button mat-button routerLink='/home'>Inicio</button>
+      <button mat-button routerLink='/admin'>Administrador</button>
+      <button mat-button (click)="logOut()">Logout</button>
+    </div>
+  <!-- </mat-toolbar-row> -->
+</ng-template>

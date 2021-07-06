@@ -1,0 +1,31 @@
+@import '../../../assets/globalStyles/forms.style.scss';
+
+// estilos de material
+
+.example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+
+  //clases propias
+
+  .color{
+    background: #7a0385;;
+  }
+
+  .flex-cont{
+      display: flex;
+      align-content: center;
+      position: absolute;
+      top: 370px;
+  }
+
+mat-card{
+  padding: 30px;
+}

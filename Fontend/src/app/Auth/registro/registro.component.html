@@ -1,0 +1,85 @@
+<div class="d-flex justify-content-center align-items-center full-h">
+  <div>
+    <mat-card class="mat-elevation-z8 tarjeta">
+      <h1 class="text-center">Crear usuarios de prueba</h1>
+      <form [formGroup]="formGroup" (ngSubmit)="onSumit()" class="example-form mt-3">
+        <mat-form-field class="example-full-width mt-3" appearance="fill">
+          <mat-label>Nombre completo</mat-label>
+          <input type="nombre" matInput formControlName="name" />
+          <mat-error *ngIf="formGroup.controls['name'].hasError('minLength')">
+            minimo 3 caracteres
+          </mat-error>
+          <mat-error *ngIf="formGroup.controls['name'].hasError('required')">
+            El nombre es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width mt-3" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+            placeholder="Ex. pat@example.com"
+          />
+          <mat-error *ngIf="formGroup.controls['email'].hasError('minLength')">
+            minimo 5 caracteres
+          </mat-error>
+          <mat-error *ngIf="formGroup.controls['email'].hasError('required')">
+            El email es <strong>obligatorio</strong>
+          </mat-error>
+          <mat-error *ngIf="formGroup.controls['email'].hasError('email')">
+           ingrese un email <strong>valido</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width mt-3" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" />
+          <mat-error
+            *ngIf="formGroup.controls['password'].hasError('minLength')"
+          >
+            Minimo 4 caracteres
+          </mat-error>
+          <mat-error
+            *ngIf="formGroup.controls['password'].hasError('required')"
+          >
+            El pasword es <strong>obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="mt-4 example-full-width">
+          <p>Rol de la cuenta : {{ roleValue }}</p>
+        </div>
+        <div class="text-end">
+          <a routerLink= "/login">ya tengo usuario</a>
+        </div> 
+        
+
+        <div>
+          <div class="row">
+            <div class="col text-center mt-5">
+              <button
+                type="submit"
+                class="boton tp-color"
+                mat-raised-button
+                [disabled]="formGroup.invalid"
+              >
+                Login
+              </button>
+
+              <button
+                (click)="roleChange()"
+                type="button"
+                class="boton tp-color"
+                mat-raised-button
+              >
+                Seleccionar rol
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
